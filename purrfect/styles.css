@@ -1,3 +1,35 @@
+body {
+	background: url(cat2-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	/*background-repeat: no-repeat;*/
+	font-family: Lato, sans-serif;
+	color: #fff;
+}
+
+html {
+	height: 100%;
+}
+
+
 #content {
+	padding-top: 20%;
 	text-align: center;
+	text-shadow:	0px 4px 3px rgba(0, 0, 0, 0.5),
+								0px 8px 13px rgba(0, 0, 0, 0.2),
+								0px 15px 23px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 6em;
+}
+h3 {
+	font-weight: 700;
+}
+
+hr {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
