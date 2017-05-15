@@ -14,9 +14,27 @@ function isUniform(array) {
 	var firstElement = array[0];
 	array.forEach(function(element) {
 		if (element === firstElement) {
-			uniform  = true;
+			uniform = true;
 		} 
 		else (uniform = false)
 	});
 	return uniform;
+}
+
+function sumArray(array) {
+	var total = 0;
+	array.forEach(function(element) {
+		total += element;
+	});
+	console.log(total);
+}
+
+function max(array) {
+	var max = 0;
+	array.forEach(function(element) {
+		if (element > max) {
+			max = element;
+		}
+	});
+	console.log(max);
 }
