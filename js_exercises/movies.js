@@ -6,11 +6,13 @@ var movies = [
 ];
 
 movies.forEach(function(movie) {
+  var result = "You have ";
   if (movie.watched == true) {
-    console.log("You have watched " + movie.title + " - " + movie.rating + " stars.");
+    result += "watched ";
   }
-  else
-  {
-    console.log("You have not seen " +  movie.title + " - " + movie.rating + " stars.");
+  else {
+    result += "not seen ";
   }
+  result += "\"" + movie.title + "\" - " + movie.rating + " stars.";
+  console.log(result);
 });
