@@ -5,6 +5,14 @@ var movies = [
   {title: "Avengers Infinity War", watched: false, rating: 3.5}
 ];
 
+var directors = {};
+directors.names = ["Lars von Trier", "Paul Verhoven", "Peter Jackson", "JJ Abrams"];
+directors.list = function() {
+  this.names.forEach(function(dirName) {
+    console.log(dirName);
+  });
+};
+
 movies.forEach(function(movie) {
   var result = "You have ";
   if (movie.watched == true) {
@@ -16,3 +24,5 @@ movies.forEach(function(movie) {
   result += "\"" + movie.title + "\" - " + movie.rating + " stars.";
   console.log(result);
 });
+
+directors.list();
