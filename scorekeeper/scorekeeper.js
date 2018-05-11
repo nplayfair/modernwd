@@ -14,6 +14,18 @@ var winningScore = 5;
 var p1Score = 0;
 var p2Score = 0;
 
+//Functions
+
+function reset() {
+  p1Score = 0;
+  p2Score = 0;
+  p1Display.textContent = p1Score;
+  p2Display.textContent = p2Score;
+  p1Display.classList.remove("winner");
+  p2Display.classList.remove("winner");
+  gameOver = false;
+}
+
 //Events
 
 p1Button.addEventListener("click", function() {
@@ -43,16 +55,11 @@ p2Button.addEventListener("click", function() {
 });
 
 resetButton.addEventListener("click", function() {
-  p1Score = 0;
-  p2Score = 0;
-  p1Display.textContent = p1Score;
-  p2Display.textContent = p2Score;
-  p1Display.classList.remove("winner");
-  p2Display.classList.remove("winner");
-  gameOver = false;
+  reset();
 });
 
 numInput.addEventListener("change", function() {
   winningScore = Number(numInput.value);
   goalDisplay.textContent = winningScore;
+  reset();
 })
