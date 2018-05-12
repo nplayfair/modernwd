@@ -5,6 +5,11 @@ body {
 h1 {
   color: white;
 }
+
+span#message {
+  color: white;
+}
+
 .square {
   width: 30%;
   float: left;
