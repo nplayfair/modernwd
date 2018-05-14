@@ -4,6 +4,21 @@ var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
+var h1 = document.querySelector("h1");
+var resetButton = document.querySelector("#reset");
+
+resetButton.addEventListener("click", function() {
+  //generate all new colours
+  colors = generateRandomColors(6);
+  //pick new random colour
+  pickedColor = pickColor();
+  //change colordisplay to match
+  colorDisplay.textContent = pickedColor;
+  //change square colours
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i];
+  }
+});
 
 colorDisplay.textContent = pickedColor;
 
@@ -21,6 +36,7 @@ for (var i = 0; i < squares.length; i++) {
       //Correct
       messageDisplay.textContent = "Correct!";
       changeColors(pickedColor);
+      h1.style.backgroundColor = clickedColor;
     }
     else {
       //Incorrect
