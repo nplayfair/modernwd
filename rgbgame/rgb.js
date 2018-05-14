@@ -1,15 +1,52 @@
-var colors = generateRandomColors(6);
-
+var numSquares = 6;
+var colors = generateRandomColors(numSquares);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
+
+
+easyBtn.addEventListener("click", function() {
+  hardBtn.classList.remove("selected");
+  easyBtn.classList.add("selected");
+  //start new game with only 3 colours
+  numSquares = 3;
+  colors = generateRandomColors(numSquares);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
+  //hide unused squares
+  for (var i = 0; i < squares.length; i++) {
+    if (colors[i]) {
+      squares[i].style.backgroundColor = colors[i];
+    }
+    else {
+      squares[i].style.display = "none";
+    }
+  }
+});
+
+hardBtn.addEventListener("click", function() {
+  hardBtn.classList.add("selected");
+  easyBtn.classList.remove("selected");
+  //start new game with 6 colours
+  numSquares = 6;
+  colors = generateRandomColors(numSquares);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
+  //hide unused squares
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i];
+    squares[i].style.display = "block";
+  }
+});
 
 resetButton.addEventListener("click", function() {
   //generate all new colours
-  colors = generateRandomColors(6);
+  colors = generateRandomColors(numSquares);
   //pick new random colour
   pickedColor = pickColor();
   //change colordisplay to match
@@ -18,6 +55,10 @@ resetButton.addEventListener("click", function() {
   for (var i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
   }
+  //reset header background
+  h1.style.backgroundColor = "#232323";
+  //change button text
+  this.textContent = "New colours";
 });
 
 colorDisplay.textContent = pickedColor;
@@ -37,6 +78,8 @@ for (var i = 0; i < squares.length; i++) {
       messageDisplay.textContent = "Correct!";
       changeColors(pickedColor);
       h1.style.backgroundColor = clickedColor;
+      //change reset button text
+      resetButton.textContent = "Play again?";
     }
     else {
       //Incorrect
