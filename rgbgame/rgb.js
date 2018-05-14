@@ -56,7 +56,7 @@ resetButton.addEventListener("click", function() {
     squares[i].style.backgroundColor = colors[i];
   }
   //reset header background
-  h1.style.backgroundColor = "#232323";
+  h1.style.backgroundColor = "steelblue";
   //change button text
   this.textContent = "New colours";
 });
