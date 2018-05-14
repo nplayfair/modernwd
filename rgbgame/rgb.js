@@ -11,6 +11,18 @@ var modeButtons = document.querySelectorAll(".mode");
 init();
 
 function init() {
+  setupModeButtons();
+  setupSquares();
+  reset();
+}
+
+//button events
+
+resetButton.addEventListener("click", function() {
+  reset();
+});
+
+function setupModeButtons() {
   //Mode button listeners
   for (var i = 0; i < modeButtons.length; i++) {
     modeButtons[i].addEventListener("click", function() {
@@ -21,6 +33,9 @@ function init() {
       reset();
     });
   }
+}
+
+function setupSquares() {
   //Set square colors and events
   for (var i = 0; i < squares.length; i++) {
     //Add listeners
@@ -43,9 +58,7 @@ function init() {
       }
     });
   }
-  reset();
 }
-
 
 function reset() {
   //generate all new colours
@@ -71,12 +84,6 @@ function reset() {
   //reset messageDisplay
   messageDisplay.textContent = "";
 }
-
-//button events
-
-resetButton.addEventListener("click", function() {
-  reset();
-});
 
 //Game functions
 
