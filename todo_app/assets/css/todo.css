@@ -28,8 +28,25 @@ li {
   color: #555;
 }
 
+li:hover span {
+  width: 40px;
+  opacity: 1.0;
+}
+
 li:nth-child(2n) {
   background-color: #f7f7f7;
+}
+
+span {
+  background-color: #e74c3c;
+  color: white;
+  height: 40px;
+  margin-right: 20px;
+  text-align: center;
+  width: 0;
+  display: inline-block;
+  transition: 0.2s linear;
+  opacity: 0;
 }
 
 input {
@@ -38,6 +55,7 @@ input {
   background-color: #f7f7f7;
   width: 100%;
   padding: 13px 13px 13px 20px;
+  border: 3px solid rgba(0,0,0, 0);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -47,6 +65,10 @@ input:focus {
   background-color: white;
   border: 3px solid #2980b9;
   outline: none;
+}
+
+.fa-pencil-square-o {
+  float: right;
 }
 
 #container {
