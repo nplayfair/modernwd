@@ -1,14 +1,27 @@
 //Check off specific todo by clicking
-$("li").on("click", function() {
+$("ul").on("click", "li", function() {
   $(this).toggleClass("completed");
 });
 
 //Delete item by clicked the delete button
-$("li span").on("click", function(event) {
+$("ul").on("click", "span", function(event) {
   //Remove the parent li
   $(this).parent().fadeOut(500, function() {
     $(this).remove();
   });
   //Stop event from propagating up the DOM
   event.stopPropagation();
+});
+
+//Add new item when typed into the input and enter is pressed
+$("input[type='text']").keypress(function(event) {
+  //Has enter been pressed?
+  if (event.which === 13) {
+    //Get value of textbox
+    var todoText = $(this).val();
+    //Clear textbox
+    $(this).val("");
+    //Create new li and add to ul
+    $("ul").append("<li><span>X</span> " + todoText + "</li>");
+  }
 });
