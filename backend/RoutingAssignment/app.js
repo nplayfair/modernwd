@@ -7,9 +7,21 @@ app.get("/", function(req, res) {
 });
 
 app.get("/speak/:animal", function(req, res) {
-  //Animal sounds
-  var animal = req.params.animal;
 
+  //Better method of doing it, dictionary
+  var sounds = {
+    pig: "Oink",
+    cow: "Moo",
+    dog: "Woof woof!",
+    cat: "Meow"
+  }
+  //Animal sounds
+  var animal = req.params.animal.toLowerCase();
+  var sound = sounds[animal];
+
+  res.send("The " + animal + " says \"" + sound + "\"");
+
+  /*
   //Switch statement
   switch(animal) {
     case "pig":
@@ -32,6 +44,7 @@ app.get("/speak/:animal", function(req, res) {
       res.send("Page not found");
     }
   }
+  */
 });
 
 app.get("/repeat/:word/:num", function(req, res) {
