@@ -22,7 +22,7 @@ app.get("/r/:subredditName", function(req, res) {
   var subreddit = req.params.subredditName;
   res.send("Welcome to the " + subreddit + " subreddit");
 });
-//*
+//* catchall, if no other route was matched
 app.get("*", function(req, res) {
   res.send("You are a star!");
 });
