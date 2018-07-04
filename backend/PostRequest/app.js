@@ -4,7 +4,12 @@ var app = express();
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  res.render("home")
+  res.render("home");
+});
+
+app.get("/friends", function(req, res) {
+  var friends = ["Tony", "Sophia", "Tom", "Greg", "Sarita"];
+  res.render("friends",{friends: friends});
 });
 
 //Tell express to listen for requests
