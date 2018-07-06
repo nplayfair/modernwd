@@ -10,7 +10,7 @@ var catSchema = new mongoose.Schema({
 var Cat = mongoose.model("Cat", catSchema);
 
 //add new cat to db
-
+/*
 var coco = new Cat({
   name: "Coco",
   age: 12,
@@ -22,9 +22,34 @@ coco.save(function(err, cat){
     console.log("something went wrong");
   }
   else {
-    console.log("cat saved to database");
+    console.log("cat saved to database:");
+    console.log(cat);
+  }
+});
+*/
+
+Cat.create({
+  name: "Roy",
+  age: 6,
+  color: "tabby"
+}, function(err, cat) {
+  if(err) {
+    console.log(err);
+  }
+  else {
     console.log(cat);
   }
 });
 
 //retrieve all cats from db
+
+Cat.find({}, function(err, cats){
+  if(err) {
+    console.log("something went wrong:");
+    console.log(err);
+  }
+  else {
+    console.log("All the cats:");
+    console.log(cats);
+  }
+})
