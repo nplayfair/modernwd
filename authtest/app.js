@@ -3,7 +3,8 @@ var express               = require("express"),
     passport              = require("passport"),
     bodyParser            = require("body-parser"),
     LocalStrategy         = require("passport-local"),
-    passportLocalMongoose = require("passport-local-mongoose");
+    passportLocalMongoose = require("passport-local-mongoose"),
+    User                  = require("./models/user");
 
 //Connect to db
 mongoose.connect("mongodb://127.0.0.1:27017/authdemo", {useNewUrlParser: true});
