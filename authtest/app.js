@@ -1,5 +1,11 @@
-var express =  require("express");
-var mongoose =  require("mongoose");
+var express               = require("express"),
+    mongoose              = require("mongoose"),
+    passport              = require("passport"),
+    bodyParser            = require("body-parser"),
+    LocalStrategy         = require("passport-local"),
+    passportLocalMongoose = require("passport-local-mongoose");
+
+//Connect to db
 mongoose.connect("mongodb://127.0.0.1:27017/authdemo", {useNewUrlParser: true});
 
 var app = express();
