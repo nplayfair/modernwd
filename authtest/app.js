@@ -33,7 +33,7 @@ app.get("/", function(req,res) {
   res.render("home");
 });
 
-app.get("/secret", function(req,res) {
+app.get("/secret", isLoggedIn, function(req,res) {
   res.render("secret");
 });
 
@@ -69,8 +69,22 @@ app.post("/login", passport.authenticate("local", {
   successRedirect: "/secret",
   failureRedirect: "/login"
 }), function(req, res) {
+});
 
-})
+//Log out
+app.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
+
+//Check if user logged in
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
 
 
 //Tell express to listen for requests
